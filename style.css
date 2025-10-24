@@ -1564,14 +1564,15 @@ body {
 }
 
 .popup-content {
-    background: white;
-    border-radius: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
     transform: scale(0.8);
     transition: all 0.3s ease;
     max-width: 400px;
     width: 90%;
+    border: 2px solid #2c3e50;
 }
 
 .popup.active .popup-content {
@@ -1579,13 +1580,14 @@ body {
 }
 
 .popup-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
     color: white;
     padding: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-family: 'Poppins', sans-serif;
+    border-bottom: 3px solid #e74c3c;
 }
 
 .popup-header i {
@@ -1602,8 +1604,8 @@ body {
 }
 
 .popup-close {
-    background: none;
-    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     color: white;
     font-size: 1.5rem;
     cursor: pointer;
@@ -1615,24 +1617,30 @@ body {
     justify-content: center;
     border-radius: 50%;
     transition: all 0.3s ease;
+    font-weight: bold;
 }
 
 .popup-close:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(231, 76, 60, 0.8);
+    border-color: #e74c3c;
+    transform: rotate(90deg);
 }
 
 .popup-body {
     padding: 30px 20px;
     text-align: center;
     font-family: 'Poppins', sans-serif;
+    background: #ffffff;
+    border-top: 1px solid #e9ecef;
 }
 
 .popup-number {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #333;
+    color: #2c3e50;
     margin: 0 0 20px 0;
     font-family: 'Poppins', sans-serif;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
 .btn-whatsapp {
@@ -1665,6 +1673,20 @@ body {
 .popup-action {
     min-width: 200px;
     font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    border: 2px solid #2c3e50;
+    color: white !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(44, 62, 80, 0.3);
+}
+
+.popup-action:hover {
+    background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(44, 62, 80, 0.4);
+    color: white !important;
 }
 
 .popup-action .fas {
