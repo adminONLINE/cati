@@ -757,14 +757,49 @@
         </div>
     </footer>
 
+    <!-- Phone Button -->
+    <div class="phone-btn" id="phoneBtn">
+        <i class="fas fa-phone"></i>
+    </div>
+
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/905551234567" class="whatsapp-btn" target="_blank">
+    <div class="whatsapp-btn" id="whatsappBtn">
         <i class="fab fa-whatsapp"></i>
-        <div class="hover-phone">
-            <i class="fas fa-phone"></i>
-            <span>Ara: 0555 123 45 67</span>
+    </div>
+
+    <!-- Phone Popup -->
+    <div class="popup" id="phonePopup">
+        <div class="popup-content">
+            <div class="popup-header">
+                <i class="fas fa-phone"></i>
+                <h3>Bizi Arayın</h3>
+                <button class="popup-close" id="closePhonePopup">&times;</button>
+            </div>
+            <div class="popup-body">
+                <p class="popup-number">0555 123 45 67</p>
+                <button class="btn btn-primary popup-action" id="callBtn">
+                    <i class="fas fa-phone"></i> Ara
+                </button>
+            </div>
         </div>
-    </a>
+    </div>
+
+    <!-- WhatsApp Popup -->
+    <div class="popup" id="whatsappPopup">
+        <div class="popup-content">
+            <div class="popup-header">
+                <i class="fab fa-whatsapp"></i>
+                <h3>WhatsApp Mesajı</h3>
+                <button class="popup-close" id="closeWhatsappPopup">&times;</button>
+            </div>
+            <div class="popup-body">
+                <p class="popup-number">0555 123 45 67</p>
+                <button class="btn btn-whatsapp popup-action" id="whatsappActionBtn">
+                    <i class="fab fa-whatsapp"></i> Şimdi Mesaj At
+                </button>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

@@ -511,3 +511,94 @@ if ('IntersectionObserver' in window) {
         imageObserver.observe(img);
     });
 }
+
+// Popup Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // DOM Elements
+    const phoneBtn = document.getElementById('phoneBtn');
+    const whatsappBtn = document.getElementById('whatsappBtn');
+    const phonePopup = document.getElementById('phonePopup');
+    const whatsappPopup = document.getElementById('whatsappPopup');
+    const closePhonePopup = document.getElementById('closePhonePopup');
+    const closeWhatsappPopup = document.getElementById('closeWhatsappPopup');
+    const callBtn = document.getElementById('callBtn');
+    const whatsappActionBtn = document.getElementById('whatsappActionBtn');
+
+    const phoneNumber = '05551234567';
+    const whatsappNumber = '905551234567';
+
+    // Phone button click
+    if (phoneBtn) {
+        phoneBtn.addEventListener('click', function() {
+            phonePopup.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+
+    // WhatsApp button click
+    if (whatsappBtn) {
+        whatsappBtn.addEventListener('click', function() {
+            whatsappPopup.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+
+    // Close phone popup
+    if (closePhonePopup) {
+        closePhonePopup.addEventListener('click', function() {
+            phonePopup.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+    }
+
+    // Close WhatsApp popup
+    if (closeWhatsappPopup) {
+        closeWhatsappPopup.addEventListener('click', function() {
+            whatsappPopup.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+    }
+
+    // Call button action
+    if (callBtn) {
+        callBtn.addEventListener('click', function() {
+            window.location.href = `tel:${phoneNumber}`;
+            phonePopup.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+    }
+
+    // WhatsApp action button
+    if (whatsappActionBtn) {
+        whatsappActionBtn.addEventListener('click', function() {
+            const message = encodeURIComponent('Merhaba, çatı izolasyonu hakkında bilgi almak istiyorum.');
+            window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+            whatsappPopup.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+    }
+
+    // Close popups when clicking outside
+    phonePopup.addEventListener('click', function(e) {
+        if (e.target === phonePopup) {
+            phonePopup.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    whatsappPopup.addEventListener('click', function(e) {
+        if (e.target === whatsappPopup) {
+            whatsappPopup.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    // Close popups with ESC key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            phonePopup.classList.remove('active');
+            whatsappPopup.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
+});

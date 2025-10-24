@@ -1477,6 +1477,35 @@ body {
     }
 }
 
+/* Phone Button Styles */
+.phone-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 100px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.phone-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(102, 126, 234, 0.6);
+}
+
+.phone-btn .fas {
+    font-size: 1.8rem;
+    transition: all 0.3s ease;
+}
+
 /* WhatsApp Button Styles */
 .whatsapp-btn {
     position: fixed;
@@ -1490,11 +1519,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: none;
+    cursor: pointer;
     box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
     transition: all 0.3s ease;
     z-index: 1000;
-    overflow: visible;
 }
 
 .whatsapp-btn:hover {
@@ -1507,41 +1535,128 @@ body {
     transition: all 0.3s ease;
 }
 
-.whatsapp-btn .hover-phone {
-    position: absolute;
-    right: 70px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 12px 20px;
-    border-radius: 50px;
+/* Popup Styles */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
-    gap: 10px;
-    white-space: nowrap;
+    justify-content: center;
+    z-index: 2000;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }
 
-.whatsapp-btn:hover .hover-phone {
+.popup.active {
     opacity: 1;
     visibility: visible;
-    right: 80px;
 }
 
-.whatsapp-btn .hover-phone .fas {
-    font-size: 1rem;
+.popup-content {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+    max-width: 400px;
+    width: 90%;
 }
 
-.whatsapp-btn .hover-phone span {
-    font-size: 0.9rem;
-    font-weight: 500;
+.popup.active .popup-content {
+    transform: scale(1);
 }
 
+.popup-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.popup-header i {
+    font-size: 1.5rem;
+}
+
+.popup-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.popup-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.popup-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.popup-body {
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.popup-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    margin: 0 0 20px 0;
+}
+
+.btn-whatsapp {
+    background-color: #25D366 !important;
+    color: white !important;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-whatsapp:hover {
+    background-color: #128C7E !important;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+}
+
+.popup-action {
+    min-width: 200px;
+}
+
+/* Mobile Responsive */
 @media (max-width: 768px) {
+    .phone-btn {
+        bottom: 20px;
+        right: 80px;
+        width: 50px;
+        height: 50px;
+    }
+
     .whatsapp-btn {
         bottom: 20px;
         right: 20px;
@@ -1549,20 +1664,35 @@ body {
         height: 50px;
     }
 
+    .phone-btn .fas,
     .whatsapp-btn .fab {
         font-size: 1.5rem;
     }
 
-    .whatsapp-btn .hover-phone {
-        right: 60px;
-        padding: 10px 15px;
+    .popup-content {
+        margin: 20px;
+        width: calc(100% - 40px);
     }
 
-    .whatsapp-btn:hover .hover-phone {
-        right: 70px;
+    .popup-header {
+        padding: 15px;
     }
 
-    .whatsapp-btn .hover-phone span {
-        font-size: 0.8rem;
+    .popup-header h3 {
+        font-size: 1.1rem;
+    }
+
+    .popup-body {
+        padding: 20px 15px;
+    }
+
+    .popup-number {
+        font-size: 1.3rem;
+    }
+
+    .popup-action {
+        min-width: 180px;
+        padding: 10px 20px;
+        font-size: 0.9rem;
     }
 }
